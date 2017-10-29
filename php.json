@@ -1,27 +1,27 @@
 {
-"Pluggin start Wp": {
-    "prefix": "wp-plug-start",
-    "body": [
-        "<?php",
-        "/*",
-            "Plugin Name: ${1:Plugin name}",
-            "Plugin URI:  ${2:https://github.com/lamberger}",
-            "Description: ${3:Short description of my plugin}",
-            "Version:     ${4:0.1.0}",
-            "Author:      ${5:Patrik Lamberger}",
-            "Author URI:  ${6:http://patriklamberger.com}",
-            "License:     ${7:GPL2}",
-            "License URI: ${8:https://www.gnu.org/licenses/gpl-2.0.html}",
-        "*/",
-
-        "if ( ! defined( 'ABSPATH' ) ) exit;",
-        "$0"
-         
-    ],
-    "description": "General Wp plug start"
-},
-
-"Plug start css js Wp": {
+	"Plugin start Wp": {
+		"prefix": "wp-plug-start",
+		"body": [
+			"<?php",
+			"/*",
+				"Plugin Name: ${1:Plugin name}",
+				"Plugin URI:  ${2:https://github.com/lamberger}",
+				"Description: ${3:Short description of my plugin}",
+				"Version:     ${4:0.1.0}",
+				"Author:      ${5:Patrik Lamberger}",
+				"Author URI:  ${6:http://patriklamberger.com}",
+				"License:     ${7:GPL2}",
+				"License URI: ${8:https://www.gnu.org/licenses/gpl-2.0.html}",
+			"*/",
+	
+			"if ( ! defined( 'ABSPATH' ) ) exit;",
+			"$0"
+			 
+		],
+		"description": "General Wp plug start"
+	},
+	
+	"Plugin start css js Wp": {
 		"prefix": "wp-plug-start-scripts",
 		"body": [
 			"<?php",
@@ -35,7 +35,7 @@
 				"License:     ${7:GPL2}",
 				"License URI: ${8:https://www.gnu.org/licenses/gpl-2.0.html}",
 			"*/",
-
+	
 			"if ( ! defined( 'ABSPATH' ) ) exit;",
 			"$0",
 			"function pjl_${9:name}_styles() { ",
@@ -43,13 +43,99 @@
 				"wp_enqueue_style('pjl_${9:name}_stylesheet');",
 			"}",
 			"add_action( 'admin_enqueue_scripts', 'pjl_${9:name}_styles' );",
-			
+				
 			"function pjl_${9:name}_scripts() {",
 				"wp_register_script('pjl_${9:name}_script', plugins_url('js/pjl_${9:name}.js', __FILE__), array('jquery'),'${11:1.1}', true);",
 				"wp_enqueue_script('pjl_${9:name}_script');",
 			"}",
 			"add_action( 'admin_enqueue_scripts', 'pjl_${9:name}_scripts' );" 
 		],
-		"description": "Wp plug start with register, enqueuing scripts"
+			"description": "Wp plug start with register, enqueuing scripts"
+	},
+	"Plugin WP CPT": {
+		"prefix": "wp-plug-start-cpt",
+		"body": [
+			"<?php",
+			"/*",
+				"Plugin Name: ${1:Plugin name}",
+				"Plugin URI:  ${2:https://github.com/lamberger}",
+				"Description: ${3:Short description of my plugin}",
+				"Version:     ${4:0.1.0}",
+				"Author:      ${5:Patrik Lamberger}",
+				"Author URI:  ${6:http://patriklamberger.com}",
+				"License:     ${7:GPL2}",
+				"License URI: ${8:https://www.gnu.org/licenses/gpl-2.0.html}",
+			"*/",
+	
+			"if ( ! defined( 'ABSPATH' ) ) exit;",
+
+			"function products_post_type() {",
+				
+					"\\$labels = array(",
+						"'name'                  => _x( 'Products', 'Post Type General Name', 'text_domain' ),",
+						"'singular_name'         => _x( 'Product', 'Post Type Singular Name', 'text_domain' ),",
+						"'menu_name'             => __( 'Products', 'text_domain' ),",
+						"'name_admin_bar'        => __( 'Product', 'text_domain' ),",
+						"'archives'              => __( 'Item Archives', 'text_domain' ),",
+						"'attributes'            => __( 'Item Attributes', 'text_domain' ),",
+						"'parent_item_colon'     => __( 'Parent Product:', 'text_domain' ),",
+						"'all_items'             => __( 'All Products', 'text_domain' ),",
+						"'add_new_item'          => __( 'Add New Product', 'text_domain' ),",
+						"'add_new'               => __( 'New Product', 'text_domain' ),",
+						"'new_item'              => __( 'New Item', 'text_domain' ),",
+						"'edit_item'             => __( 'Edit Product', 'text_domain' ),",
+						"'update_item'           => __( 'Update Product', 'text_domain' ),",
+						"'view_item'             => __( 'View Product', 'text_domain' ),",
+						"'view_items'            => __( 'View Items', 'text_domain' ),",
+						"'search_items'          => __( 'Search products', 'text_domain' ),",
+						"'not_found'             => __( 'No products found', 'text_domain' ),",
+						"'not_found_in_trash'    => __( 'No products found in Trash', 'text_domain' ),",
+						"'featured_image'        => __( 'Featured Image', 'text_domain' ),",
+						"'set_featured_image'    => __( 'Set featured image', 'text_domain' ),",
+						"'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),",
+						"'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),",
+						"'insert_into_item'      => __( 'Insert into item', 'text_domain' ),",
+						"'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),",
+						"'items_list'            => __( 'Items list', 'text_domain' ),",
+						"'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),",
+						"'filter_items_list'     => __( 'Filter items list', 'text_domain' ),",
+					");",
+					"\\$rewrite = array(",
+						"'slug'                  => 'product',",
+						"'with_front'            => true,",
+						"'pages'                 => false,",
+						"'feeds'                 => true,",
+					");",
+					"\\$args = array(",
+						"'label'                 => __( 'Product', 'text_domain' ),",
+						"'description'           => __( 'Product information pages.', 'text_domain' ),",
+						"'labels'                => \\$labels,",
+						"'supports'              => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', ),",
+						"'taxonomies'            => array( 'category', 'post_tag' ),",
+						"'hierarchical'          => false,",
+						"'public'                => true,",
+						"'show_ui'               => true,",
+						"'show_in_menu'          => true,",
+						"'menu_position'         => 5,",
+						"'menu_icon'             => 'dashicons-network',",
+						"'show_in_admin_bar'     => true,",
+						"'show_in_nav_menus'     => true,",
+						"'can_export'            => true,",
+						"'has_archive'           => true,",		
+						"'exclude_from_search'   => false,",
+						"'publicly_queryable'    => true,",
+						"'query_var'             => 'product',",
+						"'rewrite'               => \\$rewrite,",
+						"'capability_type'       => 'post',",
+						"'show_in_rest'          => false,",
+					");",
+					"register_post_type( 'product', \\$args );",
+				
+				"}",
+				"add_action( 'init', 'products_post_type', 0 );"
+			 
+		],
+			"description": "Wp cpt as a plugin"
 	}
 }
+	
