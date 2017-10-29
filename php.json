@@ -14,8 +14,30 @@
 		"description": "Log output to console"
 	}
 */
+"Pluggin start Wp": {
+    "prefix": "wp-plug-start",
+    "body": [
+        "<?php",
+        "/*",
+            "Plugin Name: ${1:Plugin name}",
+            "Plugin URI:  ${2:https://github.com/lamberger}",
+            "Description: ${3:Short description of my plugin}",
+            "Version:     ${4:0.1.0}",
+            "Author:      ${5:Patrik Lamberger}",
+            "Author URI:  ${6:http://patriklamberger.com}",
+            "License:     ${7:GPL2}",
+            "License URI: ${8:https://www.gnu.org/licenses/gpl-2.0.html}",
+        "*/",
+
+        "if ( ! defined( 'ABSPATH' ) ) exit;",
+        "$0"
+         
+    ],
+    "description": "General Wp plug start"
+},
+
 "Plug start css js Wp": {
-		"prefix": "wp-plug-scripts",
+		"prefix": "wp-plug-start-scripts",
 		"body": [
 			"<?php",
 			"/*",
@@ -44,26 +66,5 @@
 			"add_action( 'admin_enqueue_scripts', 'pjl_${9:name}_scripts' );" 
 		],
 		"description": "Wp plug start with register, enqueuing scripts"
-	},
-	"Pluggin start Wp": {
-		"prefix": "wp-plug-start",
-		"body": [
-			"<?php",
-			"/*",
-				"Plugin Name: ${1:Plugin name}",
-				"Plugin URI:  ${2:https://github.com/lamberger}",
-				"Description: ${3:Short description of my plugin}",
-				"Version:     ${4:0.1.0}",
-				"Author:      ${5:Patrik Lamberger}",
-				"Author URI:  ${6:http://patriklamberger.com}",
-				"License:     ${7:GPL2}",
-				"License URI: ${8:https://www.gnu.org/licenses/gpl-2.0.html}",
-			"*/",
-
-			"if ( ! defined( 'ABSPATH' ) ) exit;",
-			"$0"
-			 
-		],
-		"description": "General Wp plug start"
 	}
 }
