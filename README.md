@@ -1,2 +1,2 @@
 # Snippets-WP-VS-Code
-Code snippets for Wordpress in VSCode editor
+Code snippets for Wordpress using VSCode editor
